@@ -113,20 +113,49 @@ describe("About Applying What We Have Learnt", function() {
         return ingredientCount[b] = (ingredientCount[b] || 0) + 1;
       }, 0)
       .value();
-      
+
 
     expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
   
+  it("should find the largest prime factor of a composite number", function () {
+    function getLargestPrimeFactor(num) {
+      var largestPrimeFactor,
+          divisor = 2;
+      
+      while (num > 1) {
+        if (num % divisor === 0) {
+          largestPrimeFactor = divisor;
+          num = num / divisor;
+          while (num % divisor === 0) {
+            num = num / divisor;
+          }
+        }
+        divisor += (divisor === 2) ? 1 : 2;
+      }
+      return largestPrimeFactor;
+    }
+
+    expect(getLargestPrimeFactor(10001)).toBe(137);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+    function largestPalindrome(num1, num2) {
+      var arr = [num1, num2];
+  
+      arr = arr.map(function(num) {
+        return num.toString().split("").sort().join("");
+      });
+      
+      arr[0] = arr[0].toString().split("").reverse().join("");
+      
+      return arr[0] + arr[1];
+    }
+
+    expect(largestPalindrome(987, 879)).toBe('987789');
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
@@ -141,5 +170,5 @@ describe("About Applying What We Have Learnt", function() {
   it("should find the 10001st prime", function () {
 
   });
-  */
+  
 });
