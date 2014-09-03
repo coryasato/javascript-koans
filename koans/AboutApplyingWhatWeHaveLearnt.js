@@ -143,6 +143,7 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
+    // Not happy with this.  Assumes values hold the same numbers.
     function largestPalindrome(num1, num2) {
       var arr = [num1, num2];
   
