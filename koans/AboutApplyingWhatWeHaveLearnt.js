@@ -160,8 +160,21 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+    // We could easily create an object with keys 1 - 20 mapping to their factors then
+    // getting the smallest factor...if that's what it means?  This does the job,
+    // but with any number.
+    function smallestDivisibleNum(num) {
+      var result = [];
       
+      for(var i = 2; i <= 20; i++) {
+        if(num % i === 0) {
+          result.push(i);
+        }
+      }
+      return result.shift();
+    }
     
+    expect(smallestDivisibleNum(15)).toBe(3);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
